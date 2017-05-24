@@ -1,0 +1,135 @@
+$desktop: 48rem;
+$primaryColor: #006E85;
+
+@mixin widthBox($width) {
+  margin: 0 auto;
+  max-width: $width;
+  padding: .5rem;
+}
+
+@mixin imageSize($width, $height) {
+  max-height: $width;
+  max-width: $height;
+}
+
+@mixin min($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+
+  @media print {
+    @content;
+  }
+}
+
+body {
+  background-color: #fefefe;
+  color: #333;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.3;
+
+  .hide-print {
+    @media print {
+      display: none;
+    }
+  }
+
+  .hide-screen {
+    @media screen {
+      display: none;
+    }
+  }
+
+  a {
+    color: #006E85;
+    text-decoration: none;
+
+    &:hover{
+      color: rgba(#006E85, .75);
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    @include widthBox($desktop);
+
+    img {
+      display: block;
+      margin: 0 auto;
+
+      @include min($desktop) {
+        margin: 0;
+      }
+
+      @include imageSize(100px, 100px);
+    }
+
+    h1 {
+      small {
+        display: block;
+      }
+    }
+  }
+
+  main {
+    @include widthBox($desktop);
+
+    @include min($desktop) {
+      display: flex;
+    }
+
+    section {
+      @include min($desktop) {
+        order: 1;
+        width: 70%;
+      }
+    }
+
+    aside {
+      @include min($desktop) {
+        order: 2;
+        width: 30%;
+      }
+
+      text-align: center;
+
+      figure {
+        margin: 0;
+        padding: 0;
+
+        img {
+          display: block;
+          margin: 0 auto;
+
+          @include imageSize(100px, 100px);
+        }
+
+        figcaption {
+          h1 {
+            small {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  span {
+    color:#FF851B;
+  }
+}
