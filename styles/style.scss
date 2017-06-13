@@ -71,7 +71,7 @@ body {
         margin: 0;
       }
 
-      @include imageSize(100px, 100px);
+      @include imageSize(96px, 96px);
     }
 
     h1 {
@@ -108,10 +108,12 @@ body {
         padding: 0;
 
         img {
+          border-radius: 5%;
+          box-shadow: 0 0 10px rgba(0,31,63,0.25);
           display: block;
           margin: 0 auto;
 
-          @include imageSize(100px, 100px);
+          @include imageSize(125px, 125px);
         }
 
         figcaption {
