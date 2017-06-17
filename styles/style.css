@@ -17,6 +17,8 @@ body {
       color: rgba(0, 110, 133, 0.75); }
   body h1, body h2, body h3, body h4, body h5, body h6 {
     font-weight: 400; }
+    body h1 small, body h2 small, body h3 small, body h4 small, body h5 small, body h6 small {
+      font-weight: 300; }
   body ul {
     list-style: none;
     margin: 0;
@@ -25,16 +27,16 @@ body {
     margin: 0 auto;
     max-width: 48rem;
     padding: .5rem; }
-    body header img {
+    body header svg {
       display: block;
       margin: 0 auto;
       max-height: 96px;
       max-width: 96px; }
       @media screen and (min-width: 48rem) {
-        body header img {
+        body header svg {
           margin: 0; } }
       @media print {
-        body header img {
+        body header svg {
           margin: 0; } }
     body header h1 small {
       display: block; }
