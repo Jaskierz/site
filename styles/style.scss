@@ -1,135 +1,95 @@
-$desktop: 48rem;
-$primaryColor: #006E85;
-
-@mixin widthBox($width) {
-  margin: 0 auto;
-  max-width: $width;
-  padding: .5rem;
-}
-
-@mixin imageSize($width, $height) {
-  max-height: $width;
-  max-width: $height;
-}
-
-@mixin min($width) {
-  @media screen and (min-width: $width) {
-    @content;
-  }
-
-  @media print {
-    @content;
-  }
-}
-
 body {
   background-color: #fefefe;
   color: #333;
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.3;
-
-  .hide-print {
-    @media print {
-      display: none;
-    }
-  }
-
-  .hide-screen {
-    @media screen {
-      display: none;
-    }
-  }
-
   a {
-    color: #006E85;
+    color: #006e85;
     text-decoration: none;
-
-    &:hover{
-      color: rgba(#006E85, .75);
+    &:hover {
+      color: rgba(0, 110, 133, .75);
     }
   }
-
-  h1{
+  h1 {
     margin: 0;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
     small {
       font-weight: 300;
     }
   }
-
+  h2 {
+    small {
+      font-weight: 300;
+    }
+  }
+  h3 {
+    small {
+      font-weight: 300;
+    }
+  }
+  h4 {
+    small {
+      font-weight: 300;
+    }
+  }
+  h5 {
+    small {
+      font-weight: 300;
+    }
+  }
+  h6 {
+    small {
+      font-weight: 300;
+    }
+  }
   p {
     margin: 0;
   }
-
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-
   header {
-    @include widthBox($desktop);
-
+    margin: 0 auto;
+    max-width: 48rem;
+    padding: 0.5rem;
     svg {
       display: block;
       margin: 0 auto;
-
-      @include min($desktop) {
-        margin: 0;
-      }
-
-      @include imageSize(96px, 96px);
+      max-height: 96px;
+      max-width: 96px;
     }
-
     h1 {
       small {
         display: block;
       }
     }
   }
-
   main {
-    @include widthBox($desktop);
-
-    @include min($desktop) {
-      display: flex;
-    }
-
+    margin: 0 auto;
+    max-width: 48rem;
+    padding: 0.5rem;
     section {
-      h2:first-child {
-        margin-top: 0;
-      }
-
-      @include min($desktop) {
-        order: 1;
-        width: 70%;
+      h2 {
+        &:first-child {
+          margin-top: 0;
+        }
       }
     }
-
     aside {
-      @include min($desktop) {
-        order: 2;
-        width: 30%;
-      }
-
       text-align: center;
-
       figure {
         margin: 0;
         padding: 0;
-
         img {
           border-radius: 5%;
-          box-shadow: 0 0 10px rgba(0,31,63,0.25);
+          box-shadow: 0 0 10px rgba(0, 31, 63, 0.25);
           display: block;
           margin: 0 auto;
-
-          @include imageSize(125px, 125px);
+          max-height: 125px;
+          max-width: 125px;
         }
-
         figcaption {
           h1 {
             small {
@@ -140,12 +100,82 @@ body {
       }
     }
   }
-
   footer {
     text-align: center;
   }
-
   span {
-    color:#FF851B;
+    color: #ff851b;
+  }
+  .list {
+    list-style: initial;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+}
+@media print {
+  body {
+    .hide-print {
+      display: none;
+    }
+    header {
+      svg {
+        margin: 0;
+      }
+    }
+    main {
+      section {
+        width: 100%;
+
+        h2:first-child {
+          margin-top: 1.938rem;
+        }
+      }
+      aside {
+        width: 100%;
+        text-align: left;
+        display: block;
+
+        h2 {
+          margin-top: 0;
+        }
+
+        ul {
+          display: block;
+          //margin-bottom: 0.5rem;
+
+          li {
+            display: inline-block;
+            margin-right: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen {
+  body {
+    .hide-screen {
+      display: none;
+    }
+  }
+}
+@media screen and (min-width: 48rem) {
+  body {
+    header {
+      svg {
+        margin: 0;
+      }
+    }
+    main {
+      display: flex;
+      section {
+        order: 1;
+        width: 70%;
+      }
+      aside {
+        order: 2;
+        width: 30%;
+      }
+    }
   }
 }
